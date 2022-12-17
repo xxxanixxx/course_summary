@@ -1,53 +1,5 @@
 {% extends "base.html" %}
 
 {% block content %}
-    <h2>{{technology}}</h2>
-    {% if not (list_most_popular and list_most_loved and list_most_dreaded and list_most_wanted and list_top_paying)  %}
-        <p>Результатов для такой технологии нет. </p>
-        <p>Вернитесь на главную страницу и попробуйте ввести другое название.</p>
-    {% else %}
-        <p>Популярность технологии:</p>
-        {% if pictures[0] is string and (pictures[0]|length) < 70 %}
-            <p>{{pictures[0]}}</p>
-        {% else %}
-            <img src="data:image/png;base64, {{ pictures[0] }}">
-        {% endif %}
 
-        <p>Заинтересованность в продолжении использования технологии:</p>
-        {% if pictures[1] is string and (pictures[1]|length) < 70 %}
-            <p>{{pictures[1]}}</p>
-        {% else %}
-            <img src="data:image/png;base64, {{ pictures[1] }}">
-        {% endif %}
-
-        <p>Разочарование в использовании технологии:</p>
-        {% if pictures[2] is string and (pictures[2]|length) < 70 %}
-            <p>{{pictures[2]}}</p>
-        {% else %}
-            <img src="data:image/png;base64, {{ pictures[2] }}">
-        {% endif %}
-
-        <p>Заинтересованность в начале работы с технологией:</p>
-        {% if pictures[3] is string and (pictures[3]|length) < 70 %}
-            <p>{{pictures[3]}}</p>
-        {% else %}
-            <img src="data:image/png;base64, {{ pictures[3] }}">
-        {% endif %}
-
-        <p>Общее отношение к технологии:</p>
-        {% if pictures[4] is string and (pictures[4]|length) < 70%}
-            <p>{{pictures[4]}}</p>
-        {% else %}
-            <img src="data:image/png;base64, {{ pictures[4] }}">
-        {% endif %}
-
-        <p>Заработок при разработке с помощью данной технологии:</p>
-        {% if pictures[5] is string and (pictures[5]|length) < 70 %}
-            <p>{{pictures[5]}}</p>
-        {% else %}
-            <img src="data:image/png;base64, {{ pictures[5] }}">
-        {% endif %}
-        <p></p>
-        <p></p>
-    {% endif %}
 {% endblock %}
