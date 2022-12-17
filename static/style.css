@@ -1,0 +1,95 @@
+header{
+    height: 70px;
+    background: white;
+    margin-bottom: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+a{
+    font-family: 'Playfair Display SC', serif;
+    font-size: 20px;
+    text-decoration: none;
+    color: #211470;
+    font-weight: lighter;
+    margin: 0 20px 0 20px;
+}
+footer{
+    height: 40px;
+    background: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+}
+span{
+    font-family: 'Playfair Display SC', serif;
+    font-size: 20px;
+    color: #211470;
+}
+body{
+    margin: 0;
+    padding: 0;
+    background: lavender;
+    width: 100%;
+    color: #211470;
+    font-family: 'Playfair Display SC', serif;
+}
+div.container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+span.lineshort {
+    border-top: 3px solid;
+    margin: 0 20px 0 20px;
+    padding-right: 300px;
+   }
+div.container_row{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin: 5px;
+
+}
+select{
+    width: 300px;
+    margin-top: 15px;
+}
+span.linelong{
+    border-top: 3px solid;
+    margin: 20px 20px 0 20px;
+    padding-right: 685px;
+   }
+button{
+    /*margin-top: 50px;*/
+    width: 15%;
+    height: 35px;
+    background: white;
+    border: 2px solid;
+    color: #211470;
+    font-size: 20px;
+    font-family: 'Playfair Display SC', serif;
+}
+button:hover{
+    background: #211470;
+    border: 2px solid;
+    color: white;
+}
+button.first{
+    margin-top: 10px;
+}
+button.second{
+    margin-top: 30px;
+}
+img{
+
+    width: 40%;
+    border: 2px solid white;
+}
+
+
+

@@ -1,0 +1,111 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <div class= "container_row">
+        <span class="linelong"></span>
+    </div>
+    <h2>Воспользуйтесь поиском: </h2>
+    <form action="{{ url_for('result') }}" method="post" id="search">
+        <input type="text" class="search" name="technologies" value="" required>
+    </form>
+    <button type="submit" form="search" class="first">Искать</button>
+    <div class="container_row">
+        <span class="lineshort"></span>
+        <span>или</span>
+        <span class="lineshort"></span>
+    </div>
+    <h2>Выберете из предложенных вариантов: </h2>
+    <form name="rb">
+        <div class="container_row">
+            <input type="radio" id="choice1" name="technology" value="programming" onclick="radio_checked()" required>
+            <label for="choice1">Programming, scripting, and markup languages</label>
+        </div>
+        <div class="container_row">
+            <input type="radio" id="choice2" name="technology" value="databases" onclick="radio_checked()" required>
+            <label for="choice2">Databases</label>
+        </div>
+        <div class="container_row">
+            <input type="radio" id="choice3" name="technology" value="cloud_platforms" onclick="radio_checked()" required>
+            <label for="choice3">Cloud platforms</label>
+        </div>
+        <div class="container_row">
+            <input type="radio" id="choice4" name="technology" value="web_frameworks" onclick="radio_checked()" required>
+            <label for="choice4">Web frameworks and technologies</label>
+        </div>
+        <div class="container_row">
+            <input type="radio" id="choice5" name="technology" value="other" onclick="radio_checked()" required>
+            <label for="choice5">Other frameworks and libraries</label>
+        </div>
+    </form>
+    <form action="{{ url_for('result') }}" method="post" id="search2">
+        <select id="technologies" name="technologies" required></select>
+    </form>
+    <div class= "container_row">
+        <span class="linelong"></span>
+    </div>
+    <button type="submit" form="search2" class="second">Искать</button>
+
+{% endblock %}
+
+{% block script %}
+    <script>
+        function radio_checked() {
+
+            const radio_buttons = document.getElementsByName('technology');
+            var select_t = document.getElementById('technologies');
+            document.querySelector('#technologies').innerHTML = '';
+
+            for (let i = 0;i < radio_buttons.length; i++) {
+                if (radio_buttons[i].checked) {
+                    if (radio_buttons[i].getAttribute('value') === "programming") {
+
+                        let list_programming = ['JavaScript', 'HTML/CSS', 'SQL', 'Python', 'C++', 'Java'];
+                        for (let j = 0; j < list_programming.length; j++) {
+                            var opt = document.createElement('option');
+                            opt.value = list_programming[j];
+                            opt.innerHTML = list_programming[j];
+                            select_t.appendChild(opt);
+                        }
+                    }
+                    else if (radio_buttons[i].getAttribute('value') === "databases") {
+                        let list_programming = ['MySQL', 'PostgreSQL', 'SQLite', 'MongoDB', 'Microsoft SQL Server', 'Redis'];
+                        for (let j = 0; j < list_programming.length; j++) {
+                            var opt = document.createElement('option');
+                            opt.value = list_programming[j];
+                            opt.innerHTML = list_programming[j];
+                            select_t.appendChild(opt);
+                        }
+                    }
+                    else if (radio_buttons[i].getAttribute('value') === "cloud_platforms") {
+                        let list_programming = ['AWS', 'Microsoft Azure', 'Google Cloud', 'Firebase', 'Heroku', 'DigitalOcean'];
+                        for (let j = 0; j < list_programming.length; j++) {
+                            var opt = document.createElement('option');
+                            opt.value = list_programming[j];
+                            opt.innerHTML = list_programming[j];
+                            select_t.appendChild(opt);
+                        }
+                    }
+                    else if (radio_buttons[i].getAttribute('value') === "web_frameworks") {
+                        let list_programming = ['Node.js', 'React.js', 'jQuery', 'Express', 'Angular', 'Vue.js'];
+                        for (let j = 0; j < list_programming.length; j++) {
+                            var opt = document.createElement('option');
+                            opt.value = list_programming[j];
+                            opt.innerHTML = list_programming[j];
+                            select_t.appendChild(opt);
+                        }
+                    }
+                    else if (radio_buttons[i].getAttribute('value') === "other") {
+                        let list_programming = ['.NET', 'NumPy', 'Pandas', 'Spring', 'TensorFlow', 'Flutter'];
+                        for (let j = 0; j < list_programming.length; j++) {
+                            var opt = document.createElement('option');
+                            opt.value = list_programming[j];
+                            opt.innerHTML = list_programming[j];
+                            select_t.appendChild(opt);
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+{% endblock %}
+

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{{url_for('static', filename='style.css')}}">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Playfair+Display+SC:400,700&subset=latin,cyrillic">
+    <title>test</title>
+     {% block script %}
+     {% endblock %}
+</head>
+<body>
+    <header>
+        <a class="logo" href="{{ url_for('home') }}">главная страница</a>
+        <a class="logo" href="{{ url_for('flights') }}">табло</a>
+        <a class="logo" href="{{ url_for('login_signup') }}">личный кабинет</a>
+    </header>
+    <div class="container">
+        <h1>On cloud nine</h1>
+        {% block content %}
+        {% endblock %}
+    </div>
+    <footer>
+        <span>2022</span>
+    </footer>
+</body>
+</html>
