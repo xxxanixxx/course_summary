@@ -1,16 +1,71 @@
 {% extends "base.html" %}
 
 {% block content %}
-<p>Данный проект создан в целях дополнительного анализа ежегодных
-    результатов рейтинга технологий с сайта Stackoverflow.com  </p>
-<p>Наш проект исследует отчеты с 2017 по 2022 год и представляет статистику по годам выбранной технологии.</p>
-<p>Исследование проводится по следующим позициям:</p>
-    <ul>
-        <li>Самые популярные технологии;</li>
-        <li>Самые любимые технологии (те, с которыми хотят продолжать работать разработчики);</li>
-        <li>Самые разочаровавшие технологии (те, с которыми не хотят продолжать работать разработчики);</li>
-        <li>Самые заинтересовавшие технологии (те, с которыми хотят начать работать разработчики);</li>
-        <li>Самые высокооплачиваемые технологии;</li>
-    </ul>
+    <form action="{{  url_for('flights') }}" method="post" class="settings">
+        <button type="submit">Обновить данные</button>
+    </form>
+
+<div class="container_row_table">
+    <table>
+        <caption>Турбо-финист</caption>
+        <tr><th>Подъем {{ couple_first_airplane[0].id_up }}</th></tr>
+        {% if couple_first_airplane[0].flag == 0 %}
+            <tr><th inline style="color: blue">В ожидании</th></tr>
+        {% else %}
+            <tr><th inline style="color: green">Взлетел</th></tr>
+        {% endif %}
+
+        {% for i in range(0, people_1plane_1up|length, 2) %}
+            <tr><td>{{ people_1plane_1up[i] }} {{ people_1plane_1up[i + 1] }}</td></tr>
+        {% endfor %}
+
+    </table>
+    <table>
+        <caption>Ан-28</caption>
+        <tr><th>Подъем {{ couple_second_airplane[0].id_up }}</th></tr>
+        {% if couple_second_airplane[0].flag == 0 %}
+            <tr><th inline style="color: blue">В ожидании</th></tr>
+        {% else %}
+            <tr><th inline style="color: green">Взлетел</th></tr>
+        {% endif %}
+
+        {% for i in range(0, people_2plane_1up|length, 2) %}
+            <tr><td>{{ people_2plane_1up[i] }} {{ people_2plane_1up[i + 1] }}</td></tr>
+        {% endfor %}
+
+    </table>
+</div>
+<div class="container_row_table">
+    <table>
+        <caption>Турбо-финист</caption>
+        <tr><th>Подъем {{ couple_first_airplane[1].id_up }}</th></tr>
+        {% if couple_first_airplane[1].flag == 0 %}
+            <tr><th inline style="color: blue">В ожидании</th></tr>
+        {% else %}
+            <tr><th inline style="color: green">Взлетел</th></tr>
+        {% endif %}
+
+        {% for i in range(0, people_1plane_2up|length, 2) %}
+            <tr><td>{{ people_1plane_2up[i] }} {{ people_1plane_2up[i + 1] }}</td></tr>
+        {% endfor %}
+
+
+    </table>
+    <table>
+        <caption>Ан-28</caption>
+        <tr><th>Подъем {{ couple_second_airplane[1].id_up }}</th></tr>
+        {% if couple_second_airplane[1].flag == 0 %}
+            <tr><th inline style="color: blue">В ожидании</th></tr>
+        {% else %}
+            <tr><th inline style="color: green">Взлетел</th></tr>
+        {% endif %}
+
+        {% for i in range(0, people_2plane_2up|length, 2) %}
+            <tr><td>{{ people_2plane_2up[i] }} {{ people_2plane_2up[i + 1] }}</td></tr>
+        {% endfor %}
+
+
+    </table>
+</div>
 
 {% endblock %}

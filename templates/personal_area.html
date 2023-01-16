@@ -1,0 +1,108 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+
+
+    <div class="container_personal_area">
+        <div class="container_row_personal_area">
+            <img src="static/defaultpicture.jpg" width="200" height="200" inline style="margin-top: 10px">
+            <div class="container">
+                <h2>{{ current_user.login }}</h2>
+                <h3>( {{ current_user.email }} )</h3>
+            </div>
+        </div>
+
+
+     {% if not flag %}
+
+        <p>Ваша страница не подтверждена!</p>
+        <p>На данный момент у вас есть доступ только к онлайн-табло</p>
+
+        <p>Заполните форму и подойдите к администратору с оригиналами документов для подтверждения страницы.</p>
+        <p>для подтверждения страницы нужна действующая страховка, вы можете приобрести ее либо подтвердить наличие на манифесте</p>
+
+        {% with messages = get_flashed_messages() %}
+          {% if messages %}
+            {% for message in messages %}
+              <p inline style="color: red">{{ message }}</p>
+            {% endfor %}
+          {% endif %}
+        {% endwith %}
+
+        <form method="post" action="{{ url_for('personal_area') }}" class="persinf">
+            <div class="container">
+                <label>Имя</label>
+                <input type="text" name="name" required>
+
+                <label>Фамилия</label>
+                <input type="text" name="surname" required>
+
+                <label>Паспорт</label>
+                <input type="text" name="passport" required>
+
+
+            </div>
+            <button type="submit">Отправить</button>
+        </form>
+
+     {% else %}
+            <h2>{{ personal_info.name }}    {{ personal_info.surname }}</h2>
+         <p><span inline style="text-decoration-line: underline"> Дата приобретения страховки:</span> {{ confirmed.date_buy }}</p>
+         <p>Страховка приобретена на <span inline style="text-decoration-line: underline">{{ insurance.period }} мес. </span></p>
+         <p>Стоимость страховки <span inline style="text-decoration-line: underline">{{ insurance.cost }} рублей </span></p>
+         <h3><span inline style="text-decoration-line: underline">Дата окончания страховки</span>
+             {% if date_end > today %}
+                <span inline style="color: green">{{ date_end }}</span>
+             {% else %}
+                 <span inline style="color: red">{{ date_end }}</span>
+             {% endif %}
+         </h3>
+
+
+
+         {% with messages = get_flashed_messages() %}
+          {% if messages %}
+            {% for message in messages %}
+              <p inline style="color: darkred">{{ message }}</p>
+            {% endfor %}
+          {% endif %}
+         {% endwith %}
+
+         <form method="post" action="{{ url_for('personal_area') }}" inline style="width: 50%">
+            <div class="container">
+                <label>Тип прыжка</label>
+                <select name="type">
+                    {% for i in types %}
+                        <option value={{ i.id }}>{{ i.type }}</option>
+                    {% endfor %}
+                </select>
+
+                <label>Подъем</label>
+                <select name="up">
+                    {% for i in range(flight|length) %}
+                        <option value={{ flight[i].id }}>{{ flight[i].id_up }} {{ airplane[i] }}</option>
+                    {% endfor %}
+                </select>
+
+            </div>
+            <button type="submit">Записаться</button>
+        </form>
+
+         {% if pictures %}
+            <img src="data:image/png;base64, {{ pictures }}" inline style="width: 70%; height: 600px">
+         {% endif %}
+
+         <h3 inline style="margin: 10px 0 10px 0">Всего взлетов (за всё время): {{ count_jumps }}</h3>
+         <h4 inline style="margin: 10px 0 10px 0">Объявленная сумма (за сегодня): {{ all_money }} руб.</h4>
+
+
+     {% endif %}
+
+
+        <a href="{{ url_for('logout') }}">Выйти из аккаунта</a>
+    </div>
+    <p></p>
+    <p></p>
+
+{% endblock %}

@@ -1,0 +1,61 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<table border="1px solid">
+    <caption>Страховки</caption>
+    <tr><th>ID_страховки</th><th>Период (мес.)</th><th>Стоимость</th></tr>
+    <tr><td>{{ list_insurance[0].id }}</td><td>{{ list_insurance[0].period }}</td><td>{{ list_insurance[0].cost }}</td></tr>
+    <tr><td>{{ list_insurance[1].id }}</td><td>{{ list_insurance[1].period }}</td><td>{{ list_insurance[1].cost }}</td></tr>
+    <tr><td>{{ list_insurance[2].id }}</td><td>{{ list_insurance[2].period }}</td><td>{{ list_insurance[2].cost }}</td></tr>
+    <tr><td>{{ list_insurance[3].id }}</td><td>{{ list_insurance[3].period }}</td><td>{{ list_insurance[3].cost }}</td></tr>
+    <tr><td>{{ list_insurance[4].id }}</td><td>{{ list_insurance[4].period }}</td><td>{{ list_insurance[4].cost }}</td></tr>
+</table>
+
+<table border="1px solid">
+    <caption>Подтвержденные пользователи</caption>
+    <tr><th>ID_пользователя</th><th>Имя</th><th>Фамилия</th><th>Паспорт</th><th>Дата покупки страховки</th>
+        <th>Дата окончания страховки</th><th>ID_страховки</th></tr>
+        {% for i in range(list_conf_users|length) %}
+            <tr><td>{{ list_conf_users[i].id}}</td>
+                <td>{{ list_personal_info[i].name }}</td>
+                <td>{{ list_personal_info[i].surname }}</td>
+                <td>{{ list_personal_info[i].passport }}</td>
+                <td>{{ list_conf_users[i].date_buy }}</td>
+                {% if list_date_end[i] < today %}
+                    <td inline style="color: red">{{ list_date_end[i] }}</td>
+                {% else %}
+                    <td inline style="color: green">{{ list_date_end[i] }}</td>
+                {% endif %}
+                <td>{{ list_conf_users[i].id_insurance }}</td>
+        {% endfor %}
+</table>
+
+      <h2>Обновить страховку</h2>
+
+    {% with messages = get_flashed_messages() %}
+      {% if messages %}
+        {% for message in messages %}
+          <span inline style="color: red; background: white; border: 1px solid #211470">{{ message }}</span>
+        {% endfor %}
+      {% endif %}
+    {% endwith %}
+
+    <form method="post" action="{{ url_for('settings_insurance') }}" class="confirmed" inline style="height: 350px; width: 40%">
+        <div class="container">
+            <label>ID_подтвержденного_пользователя</label>
+            <input type="text" name="id_users" required>
+
+            <label>ID_страховки</label>
+            <input type="text" name="id_insurance" required>
+
+            <label>Дата покупки страховки</label>
+            <input type="date" name="date_buy" required>
+
+        </div>
+        <button type="submit">Подтвердить</button>
+    </form>
+
+
+
+{% endblock %}

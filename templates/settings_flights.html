@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <div class="container_row" inline style="width: 80%">
+        <table border="1px solid">
+            <tr><th>ID_полета</th><th>Номер подъема</th><th>Самолет</th><th>Статус подъема</th></tr>
+                {% for i in range((list_flights|length)//2) %}
+                    <tr><td>{{ list_flights[i].id }}</td><td>{{ list_flights[i].id_up }}</td>
+                        <td>{{ list_airplane[i].name }}</td><td>{{ list_flights[i].flag }}</td></tr>
+                {% endfor %}
+        </table>
+        <div class="container">
+            <h4>Статус подъема</h4>
+            <ul>
+                <li>0 - в ожидании взлета</li>
+                <li>1 - борт взлетел</li>
+                <li>2 - отменен в полете (непогода, ЧП)</li>
+                <li>3 - приземлился</li>
+            </ul>
+        </div>
+        <table border="1px solid">
+           <tr><th>ID_полета</th><th>Номер подъема</th><th>Самолет</th><th>Статус подъема</th></tr>
+                {% for i in range(10, list_flights|length) %}
+                    <tr><td>{{ list_flights[i].id }}</td><td>{{ list_flights[i].id_up }}</td>
+                        <td>{{ list_airplane[i].name }}</td><td>{{ list_flights[i].flag }}</td></tr>
+                {% endfor %}
+        </table>
+    </div>
+
+        <h2>Установить статус борта</h2>
+
+        {% with messages = get_flashed_messages() %}
+          {% if messages %}
+            {% for message in messages %}
+              <span inline style="color: red; background: white; border: 1px solid #211470">{{ message }}</span>
+            {% endfor %}
+          {% endif %}
+        {% endwith %}
+
+        <form method="post" action="{{ url_for('settings_flights') }}" class="confirmed" inline style="height: 270px">
+            <div class="container">
+                <label>ID_полета</label>
+                <input type="text" name="id_flights" required>
+
+                <label>Статус подъема</label>
+                <input type="text" name="flag" required>
+            </div>
+            <button type="submit">Подтвердить</button>
+        </form>
+
+{% endblock %}

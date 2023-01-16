@@ -1,111 +1,189 @@
 {% extends "base.html" %}
 
 {% block content %}
-    <div class= "container_row">
+
+<h1 class="over">VATULINO</h1>
+
+<div class="container_row">
+    <video autoplay muted loop>
+        <source src="static/2.mp4" type="video/mp4">
+    </video>
+
+    <video autoplay muted loop>
+        <source src="static/1.mp4" type="video/mp4">
+
+    </video>
+
+    <video autoplay muted loop>
+        <source src="static/3.mp4" type="video/mp4">
+    </video>
+</div>
+     <h1>Добро пожаловать в клуб парашютного спорта ВАТУЛИНО</h1>
+    <h2>Подарите себе и близким самые незабываемые впечатления!</h2>
+    <h3>Работаем ежедневно с 9 до 18 часов. А летаем - как только позволяет погода.</h3>
+
+    <div class="arrow arrow-bottom"></div>
+
+    <div class= "container_row_line">
+        <span class="linelong_arrow"></span>
+        <span class="linelong_arrow"></span>
+    </div>
+
+    <div class="container_row_text">
+        <img src="static/firstjump1.jpg" width="400" height="300">
+        <div class="container">
+            <h2>Самостоятельный прыжок</h2>
+            <p class="row"> На нашем аэродроме вы можете совершить первый самостоятельный прыжок с круглым парашютом.
+                Тренировки и подготовка к прыжку осуществляется непосредственно на аэродроме в тот же день. </p>
+        </div>
+        <img src="static/firstjump2.jpg" width="400" height="300">
+    </div>
+
+    <div class= "container_row_line">
+        <span class="linelong"></span>
         <span class="linelong"></span>
     </div>
-    <h2>Воспользуйтесь поиском: </h2>
-    <form action="{{ url_for('result') }}" method="post" id="search">
-        <input type="text" class="search" name="technologies" value="" required>
-    </form>
-    <button type="submit" form="search" class="first">Искать</button>
-    <div class="container_row">
-        <span class="lineshort"></span>
-        <span>или</span>
-        <span class="lineshort"></span>
-    </div>
-    <h2>Выберете из предложенных вариантов: </h2>
-    <form name="rb">
-        <div class="container_row">
-            <input type="radio" id="choice1" name="technology" value="programming" onclick="radio_checked()" required>
-            <label for="choice1">Programming, scripting, and markup languages</label>
-        </div>
-        <div class="container_row">
-            <input type="radio" id="choice2" name="technology" value="databases" onclick="radio_checked()" required>
-            <label for="choice2">Databases</label>
-        </div>
-        <div class="container_row">
-            <input type="radio" id="choice3" name="technology" value="cloud_platforms" onclick="radio_checked()" required>
-            <label for="choice3">Cloud platforms</label>
-        </div>
-        <div class="container_row">
-            <input type="radio" id="choice4" name="technology" value="web_frameworks" onclick="radio_checked()" required>
-            <label for="choice4">Web frameworks and technologies</label>
-        </div>
-        <div class="container_row">
-            <input type="radio" id="choice5" name="technology" value="other" onclick="radio_checked()" required>
-            <label for="choice5">Other frameworks and libraries</label>
-        </div>
-    </form>
-    <form action="{{ url_for('result') }}" method="post" id="search2">
-        <select id="technologies" name="technologies" required></select>
-    </form>
-    <div class= "container_row">
+    <p class="space">VATULINO VATULINO VATULINO VATULINO</p>
+    <div class= "container_row_line">
+        <span class="linelong"></span>
         <span class="linelong"></span>
     </div>
-    <button type="submit" form="search2" class="second">Искать</button>
+
+        <div class="container_row_text">
+        <img src="static/tandem1.jpg" width="400" height="300">
+        <div class="container">
+            <h2>Тандем прыжок</h2>
+            <p class="row"> Вы можете испытать радость свободного падения с большой высоты в сопровождении опытного
+                инструктора после недолгой наземной подготовки. </p>
+        </div>
+        <img src="static/tandem2.jpg" width="400" height="300">
+    </div>
+
+    <div class= "container_row_line">
+        <span class="linelong"></span>
+        <span class="linelong"></span>
+    </div>
+    <p class="space">VATULINO VATULINO VATULINO VATULINO</p>
+    <div class= "container_row_line">
+        <span class="linelong"></span>
+        <span class="linelong"></span>
+    </div>
+
+        <div class="container_row_text">
+        <img src="static/sportcourse1.jpg" width="400" height="300">
+        <div class="container">
+            <h2>Спортивная подготовка</h2>
+            <p class="row"> Понравилось? Хотите еще выше, больше и быстрее? Наши инструкторы расскажут, покажут и помогут!
+                Проходите обучение по программе подготовки парашютистов AFF в АСК «Ватулино»</p>
+        </div>
+        <img src="static/sportcourse2.jpg" width="400" height="300">
+    </div>
+
+      <div class= "container_row_line">
+        <span class="linelong"></span>
+        <span class="linelong"></span>
+    </div>
+    <p class="space">VATULINO VATULINO VATULINO VATULINO</p>
+    <div class= "container_row_line">
+        <span class="linelong"></span>
+        <span class="linelong"></span>
+    </div>
+
+        <div class="container_row_text">
+        <img src="static/sportjump1.jpg" width="400" height="300">
+        <div class="container">
+            <h2>Спортивные прыжки</h2>
+            <p class="row">Спортсменам-парашютистам предлагаем возможность прыжков с самолета АН-2 и АН-28!
+                Высота отделения от 1500 до 4500 метров.</p>
+        </div>
+        <img src="static/sportjump2.jpg" width="400" height="300">
+    </div>
+
+    <div class= "container_row_line">
+        <span class="linelong"></span>
+        <span class="linelong"></span>
+    </div>
+
+    <h2>ПРАЙС-ЛИСТ</h2>
+
+    <div class= "container_row_line">
+        <span class="linelong"></span>
+        <span class="linelong"></span>
+    </div>
+
+    <div class="container_row_text2">
+        <div class="container">
+            <ul>
+                <li class="cost">Самостоятельный прыжок Д-6, стабилизация 3 сек.
+                    <ul>
+                        <li>Самостоятельный прыжок — 4 500 рублей</li>
+                        <li>Самостоятельный прыжок (для опоздавших) — 5 500 рублей</li>
+                        <li>Залог за снаряжение — 1 000 рублей</li>
+                    </ul>
+                </li>
+                <li class="cost">Самостоятельный прыжок ПТЛ-72
+                    <ul>
+                        <li>Самостоятельный прыжок, стабилизация 10 сек. — 6 000 рублей</li>
+                        <li>Самостоятельный прыжок, стабилизация 20 сек. — 6 500 рублей</li>
+                        <li>Самостоятельный прыжок, стабилизация 30 сек. — 7 000 рублей</li>
+                        <li>Фото и Видеосъемка прыжка — 4 000 рублей</li>
+                    </ul>
+                </li>
+                <li class="cost">Тандем прыжок
+                    <ul>
+                        <li>Тандем-прыжок, высота 4 000 м. — 16 000 рублей</li>
+                        <li>Тандем-прыжок, высота 3 000 м. — 15 000 рублей</li>
+                        <li>Фото и Видеосъемка прыжка — 4 500 рублей</li>
+                    </ul>
+                </li>
+
+            </ul>
+        </div>
+     <div class="container">
+         <ul>
+                <li class="cost">Классическая программа подготовки
+                    <ul>
+                        <li>Круглый парашют, самолет Ан-2 — 2 800 рублей</li>
+                        <li>Теоретическая подготовка — 7 500 рублей</li>
+                        <li>Подготовка для перехода на «крыло» — 2 000 рублей</li>
+                    </ul>
+                </li>
+                <li class="cost">AFF (Accelerated Free Fall)
+                    <ul>
+                        <li>Теоретическая подготовка — 5 000 рублей</li>
+                        <li>Уровень 0 — 16 000 рублей</li>
+                        <li>Уровни 1 - 3 — 12 500 рублей (прыжок)</li>
+                        <li>Уровни 4 - 7 — 9 500 рублей (прыжок)</li>
+                    </ul>
+                </li>
+                <li class="cost">Спортивные прыжки
+                    <ul>
+                        <li>Высота до 2000 м. (своя парашютная система) — 1 900 рублей</li>
+                        <li>Высота до 4 500 м. (своя парашютная система) — 2 200 рублей</li>
+                        <li>Высота до 1 500 м. (своя десантная парашютная система) — 1 800 рублей</li>
+                    </ul>
+                </li>
+
+            </ul>
+
+     </div>
+
+    </div>
+
+    <div class= "container_row_line">
+        <span class="linelong"></span>
+        <span class="linelong"></span>
+    </div>
+
+
+    <h3 class="under">По всем вопросам звоните, либо пишите по телефону - 8 800 555 35 35</h3>
+
 
 {% endblock %}
 
 {% block script %}
     <script>
-        function radio_checked() {
 
-            const radio_buttons = document.getElementsByName('technology');
-            var select_t = document.getElementById('technologies');
-            document.querySelector('#technologies').innerHTML = '';
-
-            for (let i = 0;i < radio_buttons.length; i++) {
-                if (radio_buttons[i].checked) {
-                    if (radio_buttons[i].getAttribute('value') === "programming") {
-
-                        let list_programming = ['JavaScript', 'HTML/CSS', 'SQL', 'Python', 'C++', 'Java'];
-                        for (let j = 0; j < list_programming.length; j++) {
-                            var opt = document.createElement('option');
-                            opt.value = list_programming[j];
-                            opt.innerHTML = list_programming[j];
-                            select_t.appendChild(opt);
-                        }
-                    }
-                    else if (radio_buttons[i].getAttribute('value') === "databases") {
-                        let list_programming = ['MySQL', 'PostgreSQL', 'SQLite', 'MongoDB', 'Microsoft SQL Server', 'Redis'];
-                        for (let j = 0; j < list_programming.length; j++) {
-                            var opt = document.createElement('option');
-                            opt.value = list_programming[j];
-                            opt.innerHTML = list_programming[j];
-                            select_t.appendChild(opt);
-                        }
-                    }
-                    else if (radio_buttons[i].getAttribute('value') === "cloud_platforms") {
-                        let list_programming = ['AWS', 'Microsoft Azure', 'Google Cloud', 'Firebase', 'Heroku', 'DigitalOcean'];
-                        for (let j = 0; j < list_programming.length; j++) {
-                            var opt = document.createElement('option');
-                            opt.value = list_programming[j];
-                            opt.innerHTML = list_programming[j];
-                            select_t.appendChild(opt);
-                        }
-                    }
-                    else if (radio_buttons[i].getAttribute('value') === "web_frameworks") {
-                        let list_programming = ['Node.js', 'React.js', 'jQuery', 'Express', 'Angular', 'Vue.js'];
-                        for (let j = 0; j < list_programming.length; j++) {
-                            var opt = document.createElement('option');
-                            opt.value = list_programming[j];
-                            opt.innerHTML = list_programming[j];
-                            select_t.appendChild(opt);
-                        }
-                    }
-                    else if (radio_buttons[i].getAttribute('value') === "other") {
-                        let list_programming = ['.NET', 'NumPy', 'Pandas', 'Spring', 'TensorFlow', 'Flutter'];
-                        for (let j = 0; j < list_programming.length; j++) {
-                            var opt = document.createElement('option');
-                            opt.value = list_programming[j];
-                            opt.innerHTML = list_programming[j];
-                            select_t.appendChild(opt);
-                        }
-                    }
-                }
-            }
-        }
     </script>
 {% endblock %}
 

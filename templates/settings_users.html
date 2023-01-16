@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<table border="1px solid">
+    <tr><th>Login</th><th>Email</th></tr>
+        {% for i in range(list_users|length) %}
+            <tr><td>{{ list_users[i].login }}</td><td>{{ list_users[i].email }}</td></tr>
+        {% endfor %}
+</table>
+
+<p>Всего зарегистрированных пользователей: {{ list_users|length }}</p>
+
+
+
+
+{% endblock %}

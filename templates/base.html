@@ -11,16 +11,18 @@
 <body>
     <header>
         <a class="logo" href="{{ url_for('home') }}">главная страница</a>
-        <a class="logo" href="{{ url_for('flights') }}">табло</a>
-        <a class="logo" href="{{ url_for('login_signup') }}">личный кабинет</a>
+        <a class="logo" href="{{ url_for('flights') }}">онлайн-табло</a>
+        <a class="logo" href="{{ url_for('personal_area') }}">личный кабинет</a>
+        <a class="logo" href="{{ url_for('login') }}">войти</a>
+
     </header>
     <div class="container">
-        <h1>On cloud nine</h1>
         {% block content %}
         {% endblock %}
     </div>
     <footer>
         <span>2022</span>
+        <a class="logo" href="{{ url_for('settings') }}" inline style="position: fixed; right: 0; bottom: 7px; ">для персонала</a>
     </footer>
 </body>
 </html>

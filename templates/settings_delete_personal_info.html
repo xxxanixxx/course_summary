@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+    <table border="1px solid">
+    <caption>Заявки</caption>
+    <tr><th>ID_заявки</th><th>Имя</th><th>Фамилия</th><th>Паспорт</th><th>Логин</th><th>ID_пользователя</th></tr>
+        {% for i in range(list_confirmed|length) %}
+            <tr><td>{{ list_confirmed[i].id}}</td>
+                <td>{{ list_confirmed[i].name }}</td>
+                <td>{{ list_confirmed[i].surname }}</td>
+                <td>{{ list_confirmed[i].passport }}</td>
+                <td>{{ list_users[i] }}</td>
+                <td>{{ list_confirmed[i].id_users_by }}</td></tr>
+        {% endfor %}
+    </table>
+
+
+        <h2>Удалить заявку</h2>
+
+        {% with messages = get_flashed_messages() %}
+          {% if messages %}
+            {% for message in messages %}
+              <span inline style="color: red; background: white; border: 1px solid #211470">{{ message }}</span>
+            {% endfor %}
+          {% endif %}
+        {% endwith %}
+
+        <form method="post" action="{{ url_for('settings_delete_personal_info') }}">
+            <div class="container">
+                <label>ID_заявки</label>
+                <input type="text" name="id_personal_info" required>
+            </div>
+            <button type="submit">Удалить</button>
+        </form>
+
+
+{% endblock %}
